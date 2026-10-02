@@ -5,7 +5,6 @@ import {
   CheckCircle,
   FileSpreadsheet,
   Layout,
-  Search,
   Code,
   ShieldCheck,
   ArrowRight,
@@ -17,62 +16,59 @@ export function ServicesSection() {
     {
       icon: ShieldCheck,
       title: "Quality Assurance & Software Testing",
-      tagline: "Prevent bugs, eliminate errors, and protect your brand's reputation.",
-      badge: "High Demand",
+      tagline: "Find bugs and fix issues before your users encounter them.",
+      badge: "Testing",
       color: "from-blue-500 to-cyan-500",
       points: [
-        "Comprehensive manual functional & sanity testing",
-        "Detailed bug reporting with reproducible steps and screenshots",
-        "Cross-browser and multi-device responsiveness audits",
-        "Regression testing to verify new features don't break existing flows",
-        "Rigorous verification of edge cases and input validation",
+        "Manual functional testing for websites and applications",
+        "Checking forms, buttons, links, and navigation flows",
+        "Testing on both mobile phones and desktop computers",
+        "Writing clear bug reports with screenshots and steps to reproduce",
+        "Re-testing fixes to make sure everything works properly",
       ],
-      deliverable: "Thorough QA Test Reports, Defect Logs & Actionable Bug Tickets",
+      deliverable: "Clear bug report with screenshots, steps, and test notes",
     },
     {
       icon: Layout,
-      title: "UI/UX Design & Usability Reviews",
-      tagline: "Clean, intuitive user interfaces that engage and convert users.",
-      badge: "User-Centered",
+      title: "UI/UX Design",
+      tagline: "Create clean, modern layouts that are easy and pleasant to use.",
+      badge: "Design",
       color: "from-indigo-500 to-purple-500",
       points: [
-        "Modern interface wireframing and user journey mapping",
-        "Mobile-first, fully responsive design consultation",
-        "Usability audits to identify friction points and drop-offs",
-        "Clean aesthetic alignment with your brand identity",
-        "Design consistency checks across screens and components",
+        "Simple and modern wireframes for your app or website ideas",
+        "Responsive layouts that work smoothly on phones and laptops",
+        "Making pages easy to navigate so users don't get confused",
+        "Checking existing designs to suggest visual improvements",
       ],
-      deliverable: "Interactive Prototypes, Design System Guidelines & UX Fixes",
+      deliverable: "Wireframes, layout mockups, and usability suggestions",
     },
     {
       icon: FileSpreadsheet,
-      title: "Microsoft Office Suite & Data Solutions",
-      tagline: "Automate reports, organize data, and present like an executive.",
-      badge: "Efficiency",
+      title: "Microsoft Office Suite",
+      tagline: "Organize data, create spreadsheets, and format clean documents.",
+      badge: "Office",
       color: "from-emerald-500 to-teal-500",
       points: [
-        "Advanced Excel formulas (VLOOKUP, XLOOKUP, INDEX/MATCH, nested logic)",
-        "Pivot tables, interactive dashboards, and data cleaning/formatting",
-        "Professional PowerPoint decks tailored for client pitches and meetings",
-        "Polished Word reports, contracts, and formal documentation",
-        "Strict data verification to guarantee 100% accuracy",
+        "Microsoft Excel: Formulas, pivot tables, and clean data organization",
+        "Microsoft Word: Well-formatted reports, summaries, and documents",
+        "Microsoft PowerPoint: Clean slide decks for presentations and meetings",
+        "Careful proofreading and data entry to prevent mistakes",
       ],
-      deliverable: "Dynamic Spreadsheets, Executive Decks & Formatted Documents",
+      deliverable: "Ready-to-use Excel sheets, formatted Word files, or slide decks",
     },
     {
       icon: Code,
-      title: "Web Assistance & Python Scripting",
-      tagline: "Reliable technical execution to bring web concepts to life.",
-      badge: "Technical",
+      title: "Basic HTML & Python",
+      tagline: "Help with web page structures, basic code edits, and simple scripts.",
+      badge: "Development",
       color: "from-sky-500 to-blue-600",
       points: [
-        "Semantic, accessible HTML & modern CSS/Tailwind structuring",
-        "Landing page tweaks, bug fixes, and layout adjustments",
-        "Python scripts for data processing, file handling, and automation",
-        "Algorithmic problem-solving backed by Computer Science fundamentals",
-        "Clean, well-commented code that is easy to maintain",
+        "Writing and fixing semantic HTML page structures",
+        "Adjusting layouts, text, and styles on web pages",
+        "Writing basic Python scripts for simple automation and data tasks",
+        "Applying computer science fundamentals to solve technical problems",
       ],
-      deliverable: "Bug-Free Web Code, Automation Scripts & Rapid Tech Support",
+      deliverable: "Clean HTML code, basic scripts, and quick technical fixes",
     },
   ];
 
@@ -83,31 +79,30 @@ export function ServicesSection() {
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 dark:bg-[#132247] text-blue-700 dark:text-cyan-300 text-xs font-semibold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
-            Client Services
+            What I Can Do
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How I Can Help Your Business
+            Services I Offer
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300">
-            Freelance services tailored for startups, agencies, and busy business owners who value
-            accuracy, fast turnarounds, and zero-defect execution.
+            Here are the main services I provide to help you finish your tasks smoothly and on time.
           </p>
         </div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {services.map((service, index) => {
+          {services.map((service) => {
             const Icon = service.icon;
             return (
               <div
                 key={service.title}
-                className="group relative rounded-2xl bg-white dark:bg-[#0c1630] border border-slate-200 dark:border-[#1e2e56] p-7 sm:p-8 hover:border-blue-400 dark:hover:border-cyan-500/60 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between"
+                className="group relative rounded-2xl bg-white dark:bg-[#0c1630] border border-slate-200 dark:border-[#1e2e56] p-7 sm:p-8 hover:border-blue-400 dark:hover:border-cyan-500/60 transition-all duration-200 shadow-sm hover:shadow-md flex flex-col justify-between"
               >
                 <div>
                   {/* Top Bar of Service Card */}
                   <div className="flex items-center justify-between mb-5">
                     <div
-                      className={`w-12 h-12 rounded-xl bg-gradient-to-tr ${service.color} flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform duration-200`}
+                      className={`w-12 h-12 rounded-xl bg-gradient-to-tr ${service.color} flex items-center justify-center text-white shadow-sm`}
                     >
                       <Icon className="w-6 h-6" />
                     </div>
@@ -117,14 +112,14 @@ export function ServicesSection() {
                   </div>
 
                   {/* Title & Tagline */}
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-cyan-300 transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
                     {service.title}
                   </h3>
                   <p className="text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
                     {service.tagline}
                   </p>
 
-                  {/* Key Capabilities */}
+                  {/* Points */}
                   <ul className="space-y-2.5 mb-6">
                     {service.points.map((point) => (
                       <li key={point} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
@@ -135,21 +130,19 @@ export function ServicesSection() {
                   </ul>
                 </div>
 
-                {/* Deliverable Box & Action Button */}
-                <div className="pt-5 border-t border-slate-100 dark:border-[#19274a] space-y-4">
+                {/* What you get */}
+                <div className="pt-5 border-t border-slate-100 dark:border-[#19274a] space-y-3">
                   <div className="text-xs text-slate-500 dark:text-slate-400">
-                    <span className="font-semibold text-slate-800 dark:text-slate-200">
-                      Deliverable:{" "}
-                    </span>
+                    <strong className="text-slate-800 dark:text-slate-200">What you get: </strong>
                     {service.deliverable}
                   </div>
 
                   <a
                     href="#contact"
-                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-blue-600 dark:text-cyan-400 group-hover:text-blue-700 dark:group-hover:text-cyan-300 hover:underline"
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-blue-600 dark:text-cyan-400 hover:text-blue-700 dark:hover:text-cyan-300"
                   >
-                    <span>Request this service</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <span>Contact me about this service</span>
+                    <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
               </div>
@@ -160,4 +153,3 @@ export function ServicesSection() {
     </section>
   );
 }
-

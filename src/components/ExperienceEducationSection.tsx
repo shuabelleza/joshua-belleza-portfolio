@@ -17,60 +17,56 @@ export function ExperienceEducationSection() {
 
   const experiences = [
     {
-      title: "Computer Science Student & Technical Freelancer",
-      organization: "EARIST Cavite Campus / Independent Freelance",
+      title: "Computer Science Student & Freelancer",
+      organization: "EARIST Cavite Campus / Freelance",
       location: "Cavite, Philippines",
       period: "August 2023 — Present",
-      type: "Academic & Freelance",
       badge: "Current",
       highlights: [
-        "Applying computer science principles, data structures, and algorithmic logic to real-world technical problems.",
-        "Executing manual software testing, functional verification, and defect logging for web and mobile software projects.",
-        "Developing responsive web interfaces using HTML, CSS, JavaScript, and Python automation workflows.",
-        "Providing freelancing services including UI/UX wireframing, data analysis, and advanced Excel modeling for diverse clients.",
+        "Studying Computer Science while offering freelance testing, design, and office services.",
+        "Performing manual testing on websites and mobile applications to find bugs.",
+        "Creating simple UI/UX layouts and helping clients with data organization in Excel.",
+        "Applying programming logic and web standards to solve client tasks.",
       ],
     },
     {
       title: "Production Operator",
-      organization: "JAE Philippines (Japan Aviation Electronics)",
+      organization: "JAE Philippines",
       location: "Cavite, Philippines",
       period: "May 2022 — November 2022",
-      type: "Industrial Precision Manufacturing",
       badge: "Completed",
       highlights: [
-        "Enforced rigorous zero-defect quality control (QC) and quality assurance (QA) inspection protocols.",
-        "Operated precision electronic component production lines adhering strictly to Standard Operating Procedures (SOPs).",
-        "Conducted thorough visual and functional inspections, identifying micro-defects before packaging and shipment.",
-        "Cultivated exceptional discipline, attention to detail, and process consistency that directly empowers modern software testing.",
+        "Inspected precision electronic parts following strict quality control standards.",
+        "Followed Standard Operating Procedures (SOPs) carefully to ensure zero defects.",
+        "Checked components for tiny flaws before packing and delivery.",
+        "Developed strong patience, discipline, and attention to detail that I use in tech work today.",
       ],
     },
   ];
 
   const educations = [
     {
-      degree: "Bachelor of Science in Computer Science (BSCS)",
+      degree: "Bachelor of Science in Computer Science",
       institution: 'Eulogio "Amang" Rodriguez Institute of Science & Technology (EARIST)',
       campus: "Cavite Campus",
       period: "August 2023 — Present",
-      status: "In Progress (Active)",
-      badge: "Undergraduate",
+      badge: "College (Ongoing)",
       highlights: [
-        "Major in Computer Science covering core curriculum: Software Engineering, Data Structures & Algorithms, Database Systems, and Object-Oriented Programming.",
-        "Hands-on coursework in software testing, system analysis, web technologies, and computational logic.",
-        "Consistent academic dedication with active focus on practical, industry-aligned freelance projects.",
+        "Major in Computer Science learning software development, testing, and web systems.",
+        "Hands-on practice in programming, database basics, and problem-solving.",
+        "Applying classroom learning directly into practical freelance projects.",
       ],
     },
     {
       degree: "Senior High School — STEM Strand",
       institution: "Philippine Christian University Manila",
-      campus: "Main Campus, Manila",
-      period: "Senior High School Graduate",
-      status: "Graduated",
+      campus: "Manila Campus",
+      period: "Senior High School",
       badge: "STEM Graduate",
       highlights: [
-        "Science, Technology, Engineering, and Mathematics (STEM) academic strand.",
-        "Developed solid foundations in analytical mathematics, computational thinking, and scientific research methodologies.",
-        "Participated in group science and technology projects emphasizing teamwork, rigor, and presentation clarity.",
+        "Completed the Science, Technology, Engineering, and Mathematics (STEM) strand.",
+        "Built good foundation in math, logical reasoning, and computer basics.",
+        "Participated in collaborative science and technology projects.",
       ],
     },
   ];
@@ -82,14 +78,13 @@ export function ExperienceEducationSection() {
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 dark:bg-[#132247] text-blue-700 dark:text-cyan-300 text-xs font-semibold uppercase tracking-wider">
             <Award className="w-3.5 h-3.5" />
-            Background & Credentials
+            Background
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Experience & Education
+            My Experience & Education
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300">
-            A track record of precision quality inspection, academic excellence in Computer Science,
-            and commitment to high-standard execution.
+            A look at my work experience and educational background.
           </p>
 
           {/* Filter Tabs */}
@@ -98,17 +93,17 @@ export function ExperienceEducationSection() {
               onClick={() => setActiveTab("both")}
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 ${
                 activeTab === "both"
-                  ? "bg-blue-600 text-white shadow-md shadow-blue-500/25"
+                  ? "bg-blue-600 text-white shadow-sm"
                   : "bg-white dark:bg-[#0e172e] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-[#1e2c4f]"
               }`}
             >
-              All Credentials
+              All
             </button>
             <button
               onClick={() => setActiveTab("experience")}
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 ${
                 activeTab === "experience"
-                  ? "bg-blue-600 text-white shadow-md shadow-blue-500/25"
+                  ? "bg-blue-600 text-white shadow-sm"
                   : "bg-white dark:bg-[#0e172e] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-[#1e2c4f]"
               }`}
             >
@@ -118,7 +113,7 @@ export function ExperienceEducationSection() {
               onClick={() => setActiveTab("education")}
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 ${
                 activeTab === "education"
-                  ? "bg-blue-600 text-white shadow-md shadow-blue-500/25"
+                  ? "bg-blue-600 text-white shadow-sm"
                   : "bg-white dark:bg-[#0e172e] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-[#1e2c4f]"
               }`}
             >
@@ -127,7 +122,7 @@ export function ExperienceEducationSection() {
           </div>
         </div>
 
-        {/* Content Layout */}
+        {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {/* Column 1: Experience */}
           {(activeTab === "both" || activeTab === "experience") && (
@@ -137,7 +132,7 @@ export function ExperienceEducationSection() {
                   <Briefcase className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                  Work & Practical Experience
+                  Experience
                 </h3>
               </div>
 
@@ -145,7 +140,7 @@ export function ExperienceEducationSection() {
                 {experiences.map((item) => (
                   <div
                     key={item.title}
-                    className="relative rounded-2xl bg-white dark:bg-[#0c1630] border border-slate-200 dark:border-[#1e2e56] p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow space-y-4"
+                    className="rounded-2xl bg-white dark:bg-[#0c1630] border border-slate-200 dark:border-[#1e2e56] p-6 sm:p-7 shadow-sm space-y-4"
                   >
                     <div className="flex flex-wrap items-start justify-between gap-2">
                       <div>
@@ -161,12 +156,12 @@ export function ExperienceEducationSection() {
                         </div>
                       </div>
 
-                      <div className="text-xs text-slate-500 dark:text-slate-400 space-y-1 text-right">
-                        <div className="flex items-center justify-end gap-1">
+                      <div className="text-xs text-slate-500 dark:text-slate-400 space-y-1 sm:text-right">
+                        <div className="flex items-center sm:justify-end gap-1">
                           <Calendar className="w-3.5 h-3.5" />
                           <span>{item.period}</span>
                         </div>
-                        <div className="flex items-center justify-end gap-1">
+                        <div className="flex items-center sm:justify-end gap-1">
                           <MapPin className="w-3.5 h-3.5" />
                           <span>{item.location}</span>
                         </div>
@@ -195,7 +190,7 @@ export function ExperienceEducationSection() {
                   <GraduationCap className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                  Academic Education
+                  Education
                 </h3>
               </div>
 
@@ -203,7 +198,7 @@ export function ExperienceEducationSection() {
                 {educations.map((item) => (
                   <div
                     key={item.degree}
-                    className="relative rounded-2xl bg-white dark:bg-[#0c1630] border border-slate-200 dark:border-[#1e2e56] p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow space-y-4"
+                    className="rounded-2xl bg-white dark:bg-[#0c1630] border border-slate-200 dark:border-[#1e2e56] p-6 sm:p-7 shadow-sm space-y-4"
                   >
                     <div className="flex flex-wrap items-start justify-between gap-2">
                       <div>
@@ -219,12 +214,12 @@ export function ExperienceEducationSection() {
                         </div>
                       </div>
 
-                      <div className="text-xs text-slate-500 dark:text-slate-400 space-y-1 text-right">
-                        <div className="flex items-center justify-end gap-1">
+                      <div className="text-xs text-slate-500 dark:text-slate-400 space-y-1 sm:text-right">
+                        <div className="flex items-center sm:justify-end gap-1">
                           <Calendar className="w-3.5 h-3.5" />
                           <span>{item.period}</span>
                         </div>
-                        <div className="flex items-center justify-end gap-1">
+                        <div className="flex items-center sm:justify-end gap-1">
                           <MapPin className="w-3.5 h-3.5" />
                           <span>{item.campus}</span>
                         </div>
@@ -249,4 +244,3 @@ export function ExperienceEducationSection() {
     </section>
   );
 }
-

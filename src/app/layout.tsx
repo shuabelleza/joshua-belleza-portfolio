@@ -14,26 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Joshua Belleza | Freelance QA, UI/UX & Technical Specialist",
+  title: "Joshua Belleza | Freelance Portfolio",
   description:
-    "Client portfolio of Joshua Belleza — Freelance Quality Assurance & Software Testing Specialist, UI/UX designer, and Computer Science student at EARIST Cavite Campus.",
-  keywords: [
-    "Joshua Belleza",
-    "Freelancer",
-    "Quality Assurance",
-    "Software Testing",
-    "UI/UX Design",
-    "EARIST",
-    "JAE Philippines",
-    "Microsoft Office Specialist",
-  ],
-  authors: [{ name: "Joshua Belleza" }],
-  openGraph: {
-    title: "Joshua Belleza | Freelance Portfolio",
-    description:
-      "Online client portfolio of Joshua Belleza. Zero-defect QA testing, UI/UX design, and digital solutions.",
-    type: "website",
-  },
+    "Portfolio of Joshua Belleza — Freelancer specializing in Quality Assurance, Software Testing, UI/UX Design, and Office Solutions.",
 };
 
 export default function RootLayout({
@@ -53,4 +36,3 @@ export default function RootLayout({
     </html>
   );
 }
-
