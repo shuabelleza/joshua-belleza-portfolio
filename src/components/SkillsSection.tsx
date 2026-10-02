@@ -205,3 +205,4 @@ export function SkillsSection() {
     </section>
   );
 }
+

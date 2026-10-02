@@ -17,6 +17,7 @@ import {
 export function HeroSection() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+  const [callBtnText, setCallBtnText] = useState("Call Me");
 
   const copyToClipboard = (text: string, type: "email" | "phone") => {
     navigator.clipboard.writeText(text);
@@ -26,6 +27,23 @@ export function HeroSection() {
     } else {
       setCopiedPhone(true);
       setTimeout(() => setCopiedPhone(false), 2000);
+    }
+  };
+
+  const handleCallClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const isPhone =
+      /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+      (window.matchMedia("(max-width: 768px)").matches &&
+        ("ontouchstart" in window || navigator.maxTouchPoints > 0));
+
+    if (isPhone) {
+      window.location.href = "tel:09218869520";
+    } else {
+      setCallBtnText("Unavailable");
+      setTimeout(() => {
+        setCallBtnText("Call Me");
+      }, 2500);
     }
   };
 
@@ -234,13 +252,19 @@ export function HeroSection() {
                     <Mail className="w-3.5 h-3.5" />
                     <span>Send Me an Email</span>
                   </a>
-                  <a
-                    href="tel:09218869520"
-                    className="flex-1 py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-[#142347] dark:hover:bg-[#1c3060] text-slate-800 dark:text-white font-medium text-xs text-center border border-slate-200 dark:border-[#22386b] transition-colors flex items-center justify-center gap-1.5"
+                  <button
+                    type="button"
+                    onClick={handleCallClick}
+                    className={`flex-1 py-2.5 px-3 rounded-xl font-medium text-xs text-center border transition-all duration-200 flex items-center justify-center gap-1.5 ${
+                      callBtnText === "Unavailable"
+                        ? "bg-amber-100 text-amber-800 border-amber-300 dark:bg-amber-950/80 dark:text-amber-300 dark:border-amber-700"
+                        : "bg-slate-100 hover:bg-slate-200 dark:bg-[#142347] dark:hover:bg-[#1c3060] text-slate-800 dark:text-white border-slate-200 dark:border-[#22386b]"
+                    }`}
+                    title={callBtnText === "Unavailable" ? "Direct calling is only available on phones" : "Call Me"}
                   >
                     <Phone className="w-3.5 h-3.5" />
-                    <span>Call Me</span>
-                  </a>
+                    <span>{callBtnText}</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -250,3 +274,4 @@ export function HeroSection() {
     </section>
   );
 }
+

@@ -17,6 +17,8 @@ export function ContactSection() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [philippineTime, setPhilippineTime] = useState("");
+  const [callBtnText, setCallBtnText] = useState("Call / Text");
+  const [showNotice, setShowNotice] = useState(false);
 
   // Philippine Time (GMT+8)
   useEffect(() => {
@@ -44,6 +46,25 @@ export function ContactSection() {
     } else {
       setCopiedPhone(true);
       setTimeout(() => setCopiedPhone(false), 2000);
+    }
+  };
+
+  const handleCallClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const isPhone =
+      /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+      (window.matchMedia("(max-width: 768px)").matches &&
+        ("ontouchstart" in window || navigator.maxTouchPoints > 0));
+
+    if (isPhone) {
+      window.location.href = "tel:09218869520";
+    } else {
+      setCallBtnText("Unavailable");
+      setShowNotice(true);
+      setTimeout(() => {
+        setCallBtnText("Call / Text");
+        setShowNotice(false);
+      }, 2800);
     }
   };
 
@@ -133,14 +154,28 @@ export function ContactSection() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3 pt-4 border-t border-slate-100 dark:border-[#19274a]">
-              <a
-                href="tel:09218869520"
-                className="flex-1 py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-xs sm:text-sm text-center transition-colors flex items-center justify-center gap-1.5"
-              >
-                <Phone className="w-4 h-4" />
-                <span>Call / Text</span>
-              </a>
+            <div className="flex items-center gap-3 pt-4 border-t border-slate-100 dark:border-[#19274a] relative">
+              <div className="flex-1 relative">
+                <button
+                  type="button"
+                  onClick={handleCallClick}
+                  className={`w-full py-2.5 px-4 rounded-xl text-white font-medium text-xs sm:text-sm text-center transition-all duration-200 flex items-center justify-center gap-1.5 ${
+                    callBtnText === "Unavailable"
+                      ? "bg-amber-600 hover:bg-amber-700"
+                      : "bg-indigo-600 hover:bg-indigo-700"
+                  }`}
+                  title={callBtnText === "Unavailable" ? "Direct calling is only available on phones" : "Call / Text"}
+                >
+                  <Phone className="w-4 h-4" />
+                  <span>{callBtnText}</span>
+                </button>
+
+                {showNotice && (
+                  <div className="absolute bottom-full left-0 right-0 mb-2 p-2.5 rounded-xl bg-slate-900 text-white text-xs text-center shadow-2xl border border-slate-700 z-20 animate-fadeIn">
+                    Calling is only supported on phones. You can copy <strong>09218869520</strong> or send an email instead!
+                  </div>
+                )}
+              </div>
 
               <button
                 onClick={() => handleCopy("09218869520", "phone")}
@@ -188,3 +223,4 @@ export function ContactSection() {
     </section>
   );
 }
+
