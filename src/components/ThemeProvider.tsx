@@ -14,24 +14,22 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("dark");
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Check localStorage or system preference, default to formal navy dark mode
+    // Read saved preference or default to formal navy dark mode
     const savedTheme = localStorage.getItem("jb-portfolio-theme") as Theme | null;
-    if (savedTheme === "light" || savedTheme === "dark") {
-      setThemeState(savedTheme);
-      if (savedTheme === "dark") {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    } else {
-      // Default to dark mode for the signature formal navy experience
-      setThemeState("dark");
+    const resolvedTheme: Theme = savedTheme === "light" ? "light" : "dark";
+
+    if (resolvedTheme === "dark") {
       document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
     }
-    setMounted(true);
+
+    // Schedule state update to avoid synchronous cascading renders during mount
+    queueMicrotask(() => {
+      setThemeState(resolvedTheme);
+    });
   }, []);
 
   const setTheme = (newTheme: Theme) => {
@@ -50,7 +48,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
-      <div className={mounted ? "" : "opacity-0"}>{children}</div>
+      {children}
     </ThemeContext.Provider>
   );
 }
